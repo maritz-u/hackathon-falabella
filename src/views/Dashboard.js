@@ -20,6 +20,11 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems, secondaryListItems } from "./ListItems";
 import Claim from "../views/Claim";
+import { iconos } from "../data/users";
+import Avatar from "@material-ui/core/Avatar";
+import Admin from "./Admin";
+import GeneralUser from "./GeneralUser";
+import AdminTable from "./AdminTable";
 
 function Copyright() {
   return (
@@ -37,6 +42,10 @@ function Copyright() {
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
+  largeAvatar: {
+    width: theme.spacing(10),
+    height: theme.spacing(10),
+  },
   root: {
     display: "flex",
   },
@@ -46,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   toolbarIcon: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
     padding: "0 8px",
     ...theme.mixins.toolbar,
   },
@@ -130,9 +139,14 @@ export default function Dashboard() {
 
   const usuario = JSON.parse(storageUsuario);
 
+  const getLogo = iconos[usuario.negocio];
+
+  const esAdmin = usuario.tipoUsuario === "ADMIN";
+
   return (
     <div className={classes.root}>
       <CssBaseline />
+
       <AppBar
         position="absolute"
         className={clsx(classes.appBar, open && classes.appBarShift)}
@@ -150,6 +164,7 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography
             component="h1"
             variant="h6"
@@ -174,11 +189,15 @@ export default function Dashboard() {
         open={open}
       >
         <div className={classes.toolbarIcon}>
+          <Avatar
+            alt="Remy Sharp"
+            src={getLogo}
+            className={esAdmin ? "" : classes.largeAvatar}
+          />
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        <Divider />
         <List>{mainListItems}</List>
         <Divider />
         <List>{secondaryListItems}</List>
@@ -186,20 +205,15 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            <Claim />
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>{/*<Chart />*/}</Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>{/*<Deposits />*/}</Paper>
-            </Grid>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>{/*<Orders />*/}</Paper>
-            </Grid>
-          </Grid>
+        <Claim />
+          {esAdmin ? <Admin /> : <GeneralUser />}
+          {/*<Grid container spacing={3}>*/}
+          {/*  /!* Chart *!/*/}
+          {/*  <Grid item xs={12} md={12} lg={12}>*/}
+          {/*    <Paper className={fixedHeightPaper}>/!*<Chart />*!/</Paper>*/}
+          {/*  </Grid>*/}
+          {/*</Grid>*/}
+
           <Box pt={4}>
             <Copyright />
           </Box>
