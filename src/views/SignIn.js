@@ -6,12 +6,15 @@ import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import { Alert } from "@material-ui/lab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { withStyles } from "@material-ui/styles";
 import theme from "../theme/theme";
 import { logDOM } from "@testing-library/react";
+import { usuariosValidos, usuarios } from "../data/users";
+import { Redirect } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -45,8 +48,8 @@ const styles = {
     margin: theme.spacing(3, 0, 2),
   },
   logoFacilito: {
-      width: "100%", // Fix IE 11 issue.
-    },
+    width: "100%", // Fix IE 11 issue.
+  },
 };
 
 class SignIn extends Component {
@@ -55,6 +58,7 @@ class SignIn extends Component {
     this.state = {
       email: "",
       password: "",
+      error: false,
     };
   }
 
@@ -72,30 +76,40 @@ class SignIn extends Component {
     });
   }
 
-  submitForm = () => {
-    console.log(this.state);
-    //Acá va lo que queramos hacer con nuestro formulario
-  };
+  submitForm(event) {
+    event.preventDefault();
+    const { email } = this.state;
+    if (usuariosValidos.includes(email)) {
+      const usuarioActual = usuarios.find((u) => u.email === email);
+      localStorage.setItem("usuarioActual", JSON.stringify(usuarioActual));
+
+      const usuario = localStorage.getItem("usuarioActual");
+      window.location.href = "/dashboard";
+    } else {
+      this.setState({ error: true });
+    }
+  }
 
   render() {
     const { classes } = this.props;
+    const { error } = this.state;
     return (
-      <Container component="main" 
-      maxWidth="xs"
-      >
+      <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <img src={Logo} 
-          alt=""
-          className={classes.logoFacilito}
-          >
-          </img>
+          <img src={Logo} alt="" className={classes.logoFacilito}></img>
+
           <Typography component="h1" variant="h5" color="primary">
             <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
               Bienvenido
             </Box>
           </Typography>
-          <form className={classes.form} noValidate>
+          {error && <Alert severity="error">usuario incorrecto</Alert>}
+          <form
+            onSubmit={(event) => this.submitForm(event)}
+            className={classes.form}
+            noValidate
+          >
             <TextField
               variant="outlined"
               margin="normal"
@@ -125,15 +139,15 @@ class SignIn extends Component {
               }}
             />
             <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Ingresar
-            </Button>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Ingresar
+              </Button>
             </Box>
             <Grid container>
               <Grid item xs>

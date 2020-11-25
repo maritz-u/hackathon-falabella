@@ -125,6 +125,10 @@ export default function Dashboard() {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
+  const storageUsuario = localStorage.getItem("usuarioActual");
+
+  const usuario = JSON.parse(storageUsuario);
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -152,7 +156,7 @@ export default function Dashboard() {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            Hola {usuario && usuario.nombre}
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
