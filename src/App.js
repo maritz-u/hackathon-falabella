@@ -14,7 +14,7 @@ function App() {
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/">
-            <Case2/>
+            <SignIn />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -1,8 +1,12 @@
-import { makeStyles } from "@material-ui/core";
+import { Divider, makeStyles } from "@material-ui/core";
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import clsx from "clsx";
+import Claim from "./Claim";
+import Case2 from "./Case2";
+import Case from "./Case";
+import Antecedent from "./Antecedent";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -18,12 +22,19 @@ const useStyles = makeStyles((theme) => ({
 
 const GeneralUser = () => {
   const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={12} lg={12}>
-        <Paper className={fixedHeightPaper}>
-          <h1>Este usuario puede registrar</h1>
+        <Paper>
+          <h1>Este usuario puede registrar issues</h1>
+          <Case />
+          <Divider />
+          <Case2 />
+          <Divider />
+          <Claim />
+          <Divider />
+          <Antecedent />
         </Paper>
       </Grid>
     </Grid>
