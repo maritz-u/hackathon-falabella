@@ -3,8 +3,6 @@ import Logo from "../img/Logo.png";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -30,7 +28,7 @@ function Copyright() {
 
 const styles = {
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: "15%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -46,6 +44,9 @@ const styles = {
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  logoFacilito: {
+      width: "100%", // Fix IE 11 issue.
+    },
 };
 
 class SignIn extends Component {
@@ -79,10 +80,16 @@ class SignIn extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Container component="main" maxWidth="xs">
+      <Container component="main" 
+      maxWidth="xs"
+      >
         <CssBaseline />
         <div className={classes.paper}>
-          <img src={Logo} alt=""></img>
+          <img src={Logo} 
+          alt=""
+          className={classes.logoFacilito}
+          >
+          </img>
           <Typography component="h1" variant="h5" color="primary">
             <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
               Bienvenido
@@ -117,10 +124,7 @@ class SignIn extends Component {
                 this.syncPasswordChanges(ev.target.value);
               }}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+            <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
             <Button
               type="submit"
               fullWidth
@@ -130,9 +134,10 @@ class SignIn extends Component {
             >
               Ingresar
             </Button>
+            </Box>
             <Grid container>
               <Grid item xs>
-                <Link color="#000000" href="#" variant="body2">
+                <Link color="secondary" href="#" variant="body2">
                   Olvidé mi contraseña
                 </Link>
               </Grid>
