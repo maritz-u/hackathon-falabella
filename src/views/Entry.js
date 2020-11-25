@@ -8,9 +8,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -40,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const Case2 = () => {
+const Entry = () => {
     const classes = useStyles();
   const [state, setState] = React.useState({
     Online: false,
@@ -56,40 +55,69 @@ const Case2 = () => {
     return (
         <div className={classes.root}>
         <Container component="main" maxWidth="xs">
+        <h2>Datos de la Acción</h2>
             
         <FormControl component="fieldset" className={classes.formControl}>
-          <FormLabel component="legend">Materias por reclamo</FormLabel>
+          <FormLabel component="legend">Tribunal</FormLabel>
           <FormGroup>
             <FormControlLabel
               control={<Checkbox checked={Online} onChange={handleChange} name="Online" />}
-              label="Reclamo por despacho del producto"
+              label="Juzgado 1"
             />
             <FormControlLabel
               control={<Checkbox checked={Local} onChange={handleChange} name="Local" />}
-              label="Reclamo por publicidad engañosa"
+              label="Juzgado 2"
             />
             <FormControlLabel
               control={<Checkbox checked={casa} onChange={handleChange} name="casa" />}
-              label="Reclamo por uso de estacionamiento"
+              label="Juzgado 3"
             />
             <FormControlLabel
               control={<Checkbox checked={casa} onChange={handleChange} name="casa" />}
-              label="Reclamo por accidente de cliente"
+              label="Juzgado 4"
             />
           </FormGroup>
         </FormControl>
-        <FormControl className={classes.formControl}>
-        <InputLabel  id="demo-simple-select-label">Preguntas por materia</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          onChange={handleChange}
-        >
-          <MenuItem >nose </MenuItem>
-          <MenuItem >porque si</MenuItem>
-          <MenuItem >lala</MenuItem>
-        </Select>
-      </FormControl>
+        <form className={classes.root} noValidate autoComplete="off">
+      <TextField id="outlined-basic" label="Rol o N° de causa" variant="outlined" />
+    </form>
+      <form className={classes.container} noValidate>
+      <TextField
+        id="date"
+        label="Fecha de reclamo"
+        type="date"
+        defaultValue="2020-11-26"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+      </form>
+      <h2>Materia de demanda</h2>
+      <FormControl component="fieldset" className={classes.formControl}>
+          <FormLabel component="legend">Tribunal</FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={<Checkbox checked={Online} onChange={handleChange} name="Online" />}
+              label="Despacho de producto"
+            />
+            <FormControlLabel
+              control={<Checkbox checked={Local} onChange={handleChange} name="Local" />}
+              label="Publicidad engañosa"
+            />
+            <FormControlLabel
+              control={<Checkbox checked={casa} onChange={handleChange} name="casa" />}
+              label="Uso de estacionamiento"
+            />
+            <FormControlLabel
+              control={<Checkbox checked={casa} onChange={handleChange} name="casa" />}
+              label="Accidente de clientes"
+            />
+          </FormGroup>
+        </FormControl>
+        <form className={classes.root} noValidate autoComplete="off">
+      <TextField id="outlined-basic" label="Cuantia de demanda" variant="outlined" />
+    </form>
     <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
               <Button
                 type="submit"
@@ -101,9 +129,9 @@ const Case2 = () => {
                 Siguiente
               </Button>
             </Box>
+
         </Container>
       </div>
     )
 }
-export default Case2
-
+export default Entry

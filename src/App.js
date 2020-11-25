@@ -6,7 +6,6 @@ import SignIn from "./views/SignIn";
 import theme from "./theme/theme";
 import Dashboard from "./views/Dashboard";
 
-
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
@@ -14,7 +13,7 @@ function App() {
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/">
-            <SingIn />
+            <SignIn />
           </Route>
         </Switch>
       </BrowserRouter>
