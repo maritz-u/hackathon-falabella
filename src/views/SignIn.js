@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Avatar from "@material-ui/core/Avatar";
+import Logo from "../img/Logo.png";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -13,6 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { withStyles } from "@material-ui/styles";
 import theme from "../theme/theme";
+import { logDOM } from "@testing-library/react";
 
 function Copyright() {
   return (
@@ -81,9 +82,11 @@ class SignIn extends Component {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}></Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
+          <img src={Logo} alt=""></img>
+          <Typography component="h1" variant="h5" color="primary">
+            <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
+              Bienvenido
+            </Box>
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
@@ -92,7 +95,7 @@ class SignIn extends Component {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Email"
               name="email"
               autoComplete="email"
               autoFocus
@@ -125,25 +128,22 @@ class SignIn extends Component {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Ingresar
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password??
+                <Link color="#000000" href="#" variant="body2">
+                  Olvidé mi contraseña
                 </Link>
               </Grid>
               <Grid item>
                 <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  {"Registro"}
                 </Link>
               </Grid>
             </Grid>
           </form>
         </div>
-        <Box mt={8}>
-          <Copyright />
-        </Box>
       </Container>
     );
   }
