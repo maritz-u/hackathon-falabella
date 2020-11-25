@@ -2,7 +2,7 @@ const usuariosValidos = [
   "ana@tottus.com",
   "pedro@sodimac.com",
   "carla@falabella.com",
-  "jose@falabella.com",
+  "admin@facilito.com",
 ];
 
 const usuarios = [
@@ -36,11 +36,11 @@ const usuarios = [
   {
     id: "3",
     nombre: "Jose Martínez",
-    email: "jose@falabella.com",
+    email: "admin@facilito.com",
     cargo: "Asesor servicio al cliente",
-    negocio: "FALABELLA",
+    negocio: "FACILITO",
     pais: "CHILE",
-    tipoUsuario: "REGULAR",
+    tipoUsuario: "ADMIN",
   },
 ];
 

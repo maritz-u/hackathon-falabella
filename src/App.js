@@ -14,7 +14,11 @@ function App() {
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/">
+<<<<<<< HEAD
             <Antecedentes/>
+=======
+            <SignIn />
+>>>>>>> 05ed12b9a9a82ec867e808756b2cdb548ef85f66
           </Route>
         </Switch>
       </BrowserRouter>
