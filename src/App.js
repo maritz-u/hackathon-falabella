@@ -5,6 +5,7 @@ import Container from "@material-ui/core/Container";
 import SignIn from "./views/SignIn";
 import theme from "./theme/theme";
 import Dashboard from "./views/Dashboard";
+import Antecedentes from "./views/Antecedentes";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/">
-            <SignIn />
+            <Antecedentes/>
           </Route>
         </Switch>
       </BrowserRouter>
