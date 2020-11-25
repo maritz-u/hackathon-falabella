@@ -34,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  lala:{
+      width:170,
+  }
+
 }));
 
 const Case2 = () => {
@@ -75,7 +79,7 @@ const Case2 = () => {
           </FormGroup>
         </FormControl>
         <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Preguntas por materia</InputLabel>
+        <InputLabel  id="demo-simple-select-label">Preguntas por materia</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -85,7 +89,7 @@ const Case2 = () => {
           <MenuItem >porque si</MenuItem>
           <MenuItem >lala</MenuItem>
         </Select>
-      </FormControl>0
+      </FormControl>
     <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
               <Button
                 type="submit"
