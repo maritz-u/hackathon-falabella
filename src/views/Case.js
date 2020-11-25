@@ -99,5 +99,5 @@ const Case = () => {
       </div>
     )
 }
-export default Case
+export default Case;
 
