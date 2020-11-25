@@ -19,6 +19,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems, secondaryListItems } from "./ListItems";
+import Claim from "../views/Claim";
 
 function Copyright() {
   return (
@@ -186,7 +187,7 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Chart */}
+            <Claim />
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>{/*<Chart />*/}</Paper>
             </Grid>
