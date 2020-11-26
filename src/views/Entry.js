@@ -7,14 +7,18 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from "@material-ui/core/Container";
 import TextField from '@material-ui/core/TextField';
-import Title from "./Title"
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-  },
-  formControl: {
-    margin: theme.spacing(3),
+    "& .MuiOutlinedInput-input":{
+        width:370,
+    },
+    "& .MuiBox-root-73 ": {
+        marginTop:16,
+    },
   },
   container: {
     display: 'flex',
@@ -23,7 +27,8 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 200,
+    width:385,
+    marginTop:15,
   },
   formControl: {
     margin: theme.spacing(1),
@@ -32,6 +37,8 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  
+ 
 
 }));
 
@@ -56,7 +63,11 @@ const Entry = () => {
     return (
         <div className={classes.root}>
         <Container component="main" maxWidth="xs">
-        <Title>Datos de la Acción</Title>
+        <Typography component="h1" variant="h5" color="primary">
+            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+            Datos de la Acción
+            </Box>
+          </Typography>
         <FormControl component="fieldset" className={classes.formControl}>
           <FormLabel component="legend">Tribunal</FormLabel>
           <FormGroup>
@@ -78,10 +89,9 @@ const Entry = () => {
             />
           </FormGroup>
         </FormControl>
-        <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Rol o N° de causa" variant="outlined" />
-    </form>
-      <form className={classes.container} noValidate>
+        <div>
+         <TextField id="outlined-basic" label="Rol o N° de causa" variant="outlined" />
+        </div>
       <TextField
         id="date"
         label="Fecha de reclamo"
@@ -92,8 +102,11 @@ const Entry = () => {
           shrink: true,
         }}
       />
-      </form>
-      <Title>Materia de demanda</Title>
+      <Typography component="h1" variant="h5" color="primary">
+            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+            Materia de demanda
+            </Box>
+          </Typography>
       <FormControl component="fieldset" className={classes.formControl}>
           <FormGroup>
             <FormControlLabel
@@ -114,9 +127,7 @@ const Entry = () => {
             />
           </FormGroup>
         </FormControl>
-        <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Cuantia de Demanda" variant="outlined" />
-    </form>
+             <TextField id="outlined-basic" label="Cuantia de Demanda" variant="outlined" />
         </Container>
       </div>
     )

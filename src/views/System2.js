@@ -61,6 +61,9 @@ const styles = {
   logoFacilito: {
     width: "100%", // Fix IE 11 issue.
   },
+ formControl: {
+   width: 390
+ },
 };
 
 class System2 extends Component {
@@ -70,6 +73,7 @@ class System2 extends Component {
       nombre: "",
       apellido: "",
       cedula: "",
+      otro: "",
       error: false,
     };
   }
@@ -96,6 +100,19 @@ class System2 extends Component {
     });
   }
 
+  syncOtroChanges(otro) {
+    console.log(otro);
+    this.setState({
+      otro: otro,
+    });
+  }
+
+  syncOtraChanges(otra) {
+    console.log(otra);
+    this.setState({
+      otra: otra,
+    });
+  }
 
 
     //submitForm(event) {
@@ -112,26 +129,30 @@ class System2 extends Component {
     //}
     //}
 
+    
+
   render() {
     const { classes } = this.props;
     const { error } = this.state;
-    return (
+
+       return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
           
-
-          <Typography component="h1" variant="h5" color="primary">
-            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-              Datos de las partes
-            </Box>
-          </Typography>
+          
           {error && <Alert severity="error">usuario incorrecto</Alert>}
           <form
             onSubmit={(event) => this.submitForm(event)}
             className={classes.form}
             noValidate
           >
+
+<Typography component="h1" variant="h5" color="primary">
+            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+           Datos de las partes
+            </Box>
+          </Typography>
            
 
           <TextField
@@ -177,14 +198,24 @@ class System2 extends Component {
               }}
             />
 
-      <FormLabel component="legend">Agregar otro demandante</FormLabel>
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField id="outlined-basic" label="" variant="outlined" />
-      </form>
+          <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="otro"
+              label="Agregar otro demandante "
+              id="otro"
+              autoComplete="otro"
+              onChange={(ev) => {
+                this.syncOtroChanges(ev.target.value);
+              }}
+            />    
+
     
       <FormLabel component="legend">Demandado</FormLabel>
-      <FormGroup >
-        
+      <FormGroup>
+      <br></br>
         <FormControlLabel
           value="falabella"
           control={<Checkbox color="primary" />}
@@ -214,10 +245,10 @@ class System2 extends Component {
           labelPlacement="end"
         />  
       </FormGroup>
-
+      <br></br>
       <FormLabel component="legend">Rut/Nit o Identificador*</FormLabel>
-      <FormGroup aria-label="position" row>
-        
+      <FormGroup>
+      <br></br>
         <FormControlLabel
           value="101"
           control={<Checkbox color="primary" />}
@@ -246,13 +277,21 @@ class System2 extends Component {
           labelPlacement="end"
         />  
       </FormGroup>
-  
-
-
-      <FormLabel component="legend">Agregar otra información</FormLabel>
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField id="outlined-basic" label="" variant="outlined" />
-      </form>
+      <br></br>
+      <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="otra"
+              label="Agregar otra información "
+              id="otra"
+              autoComplete="otra"
+              onChange={(ev) => {
+                this.syncOtraChanges(ev.target.value);
+              }}
+            />    
+      
 
 
       <Typography component="h1" variant="h5" color="primary">
@@ -261,8 +300,9 @@ class System2 extends Component {
             </Box>
           </Typography>
 
+        <div>
           <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Abogado Interno </InputLabel>
+        <InputLabel id="demo-simple-select">Abogado Interno </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -272,10 +312,11 @@ class System2 extends Component {
           <MenuItem value={3}>Abogado 3</MenuItem>
         </Select>
       </FormControl>
+      </div>
 
-
+      <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Abogado Externo </InputLabel>
+        <InputLabel id="demo-simple-select">Abogado Externo </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -285,6 +326,7 @@ class System2 extends Component {
           <MenuItem value={3}>Abogado 3</MenuItem>
         </Select>
       </FormControl>
+      </div>
 
 
             <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>

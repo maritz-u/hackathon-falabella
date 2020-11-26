@@ -48,9 +48,6 @@ const styles = {
   logoFacilito: {
     width: "100%", // Fix IE 11 issue.
   },
-<<<<<<< HEAD
-  
-=======
   upload: {
     cursor: "pointer",
     fontSize: "40px",
@@ -58,7 +55,6 @@ const styles = {
   Tipografia: {
       marginRight: theme.spacing(10),
   }
->>>>>>> e46fd92ffca10f82cfc90c2dc203f2591a39ec67
 };
 
 class Demandas extends Component {
