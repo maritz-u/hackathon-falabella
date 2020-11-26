@@ -67,6 +67,9 @@ class Antecedentes extends Component {
       nombre: "",
       apellido: "",
       cedula: "",
+      monto: "",
+      agregar: "",
+      comentarios: "",
       error: false,
     };
   }
@@ -110,6 +113,27 @@ class Antecedentes extends Component {
     console.log(cedula);
     this.setState({
       cedula: cedula,
+    });
+  }
+
+  syncAgregarChanges(agregar) {
+    console.log(agregar);
+    this.setState({
+      agregar:agregar,
+    });
+  }
+
+  syncMontoChanges(monto) {
+    console.log(monto);
+    this.setState({
+      monto: monto,
+    });
+  }
+
+  syncComentariosChanges(comentarios) {
+    console.log(comentarios);
+    this.setState({
+      comentarios: comentarios,
     });
   }
 
@@ -244,15 +268,17 @@ class Antecedentes extends Component {
               </Box>
             </Typography>
 
-            <FormLabel component="legend">Precio del producto</FormLabel>
-            <FormGroup aria-label="position" row>
+            <FormLabel component="legend">
+              Precio del producto</FormLabel>
+              <br></br>
+            <FormGroup>
               <FormControlLabel
                 value="si"
                 control={<Checkbox color="primary" />}
                 label="Si"
                 labelPlacement=""
               />
-
+              
               <FormControlLabel
                 value="no"
                 control={<Checkbox color="primary" />}
@@ -262,7 +288,9 @@ class Antecedentes extends Component {
             </FormGroup>
 
             <FormLabel component="legend">Calidad del producto</FormLabel>
-            <FormGroup aria-label="position" row>
+            <br></br>
+
+            <FormGroup>
               <FormControlLabel
                 value="si"
                 control={<Checkbox color="primary" />}
@@ -279,7 +307,8 @@ class Antecedentes extends Component {
             </FormGroup>
 
             <FormLabel component="legend">Contenido del producto</FormLabel>
-            <FormGroup aria-label="position" row>
+            <br></br>
+            <FormGroup>
               <FormControlLabel
                 value="si"
                 control={<Checkbox color="primary" />}
@@ -298,7 +327,8 @@ class Antecedentes extends Component {
             <FormLabel component="legend">
               Oferta especial no respetada
             </FormLabel>
-            <FormGroup aria-label="position" row>
+            <br></br>
+            <FormGroup>
               <FormControlLabel
                 value="si"
                 control={<Checkbox color="primary" />}
@@ -317,7 +347,8 @@ class Antecedentes extends Component {
             <FormLabel component="legend">
               Condiciones comerciales no respetada
             </FormLabel>
-            <FormGroup aria-label="position" row>
+            <br></br>
+            <FormGroup>
               <FormControlLabel
                 value="si"
                 control={<Checkbox color="primary" />}
@@ -336,9 +367,23 @@ class Antecedentes extends Component {
             <FormLabel component="legend">
               Si el cliente reclama algún monto, ingréselo
             </FormLabel>
-            <form className={classes.root} noValidate autoComplete="off">
-              <TextField id="outlined-basic" label="Monto" variant="outlined" />
-            </form>
+            <br></br>
+            
+
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="monto"
+              label="Monto reclamado"
+              id="monto"
+              autoComplete="monto"
+              onChange={(ev) => {
+                this.syncMontoChanges(ev.target.value);
+              }}
+            />
+
 
             <Typography component="h1" variant="h5" color="primary">
               <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
@@ -346,22 +391,43 @@ class Antecedentes extends Component {
               </Box>
             </Typography>
 
+
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="información adicional"
+              label="Agregar información adicional"
+              id="agregar"
+              autoComplete="agregar"
+              onChange={(ev) => {
+                this.syncAgregarChanges(ev.target.value);
+              }}
+            />
+
             <Typography component="h1" variant="h5" color="primary">
               <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
                 Comentarios
               </Box>
             </Typography>
 
-            <FormLabel component="legend">
-              Si el cliente reclama algún monto, ingréselo
-            </FormLabel>
-            <form className={classes.root} noValidate autoComplete="off">
-              <TextField
-                id="outlined-basic"
-                label="Agregar comentarios adicionales"
-                variant="outlined"
-              />
-            </form>
+
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="comentarios adicionales"
+              label="Comentarios adicionales"
+              id="comentariosr"
+              autoComplete="comentarios"
+              onChange={(ev) => {
+                this.syncComentariosChanges(ev.target.value);
+              }}
+            />
+
+            
 
             <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
               {/*<Button*/}
