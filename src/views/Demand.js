@@ -10,10 +10,13 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { withStyles } from "@material-ui/styles";
 import theme from "../theme/theme";
+import { FormControl } from "@material-ui/core";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import Title from "./Title";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="textSecondary" align="right">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
@@ -29,7 +32,7 @@ const styles = {
     marginTop: "15%",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "right",
   },
   avatar: {
     margin: theme.spacing(1),
@@ -45,7 +48,17 @@ const styles = {
   logoFacilito: {
     width: "100%", // Fix IE 11 issue.
   },
+<<<<<<< HEAD
   
+=======
+  upload: {
+    cursor: "pointer",
+    fontSize: "40px",
+  },
+  Tipografia: {
+      marginRight: theme.spacing(10),
+  }
+>>>>>>> e46fd92ffca10f82cfc90c2dc203f2591a39ec67
 };
 
 class Demandas extends Component {
@@ -88,82 +101,118 @@ class Demandas extends Component {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div className={classes.paper}>
-          <Typography component="h1" variant="h5" color="primary">
-            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-              Fecha de notificación
-            </Box>
-            <FormLabel component="legend">
-              ¿Cuándo recibió la notificación de la demanda?
-            </FormLabel>
-          </Typography>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="fecha"
-            label=""
-            type="date"
-            id="fecha"
-            autoComplete="fecha"
-            onChange={(ev) => {
-              this.syncFechaChanges(ev.target.value);
-            }}
-          />
-<Typography component="h1" variant="h5" color="primary">
-            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-              Recepción de demanda
-            </Box>
-            <FormLabel component="legend">
-              ¿Quién recibió la demanda?
-            </FormLabel>
-          </Typography>
-          <form className={classes.root} noValidate autoComplete="off">
+        <FormControl>
+          <div className={classes.paper}>
+            <Typography color="primary">
+              <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+                Fecha de notificación
+              </Box>
+              <FormLabel component="legend">
+                ¿Cuándo recibió la notificación de la demanda?
+              </FormLabel>
+            </Typography>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="fecha"
+              label=""
+              type="date"
+              id="fecha"
+              autoComplete="fecha"
+              onChange={(ev) => {
+                this.syncFechaChanges(ev.target.value);
+              }}
+            />
+            <Typography 
+            color= "primary">
+              <Box
+                color="primary"
+                fontWeight="fontWeightBold"
+                m={1}
+                fontSize={20}
+                m={1}
+              >
+                Recepción de demanda
+              </Box>
+              <FormLabel component="legend">
+                ¿Quién recibió la demanda?
+              </FormLabel>
+            </Typography>
             <TextField
               id="outlined-basic"
               label="Agregar comentarios "
               variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              onChange={(ev) => {
+                this.syncFechaChanges(ev.target.value);
+              }}
             />
-          </form>
-          <Typography component="h1" variant="h5" color="primary">
-            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-              Antecedentes extras
-            </Box>
-          </Typography>
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-            />
-          </form>
-
-          <Typography component="h1" variant="h5" color="primary">
-            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-              Comentarios
-            </Box>
-          </Typography>
-
-          <form className={classes.root} noValidate autoComplete="off">
+            <Typography 
+            color="primary">
+              <Box
+                color="primary"
+                fontWeight="fontWeightBold"
+                m={1}
+                fontSize={20}
+                m={1}
+              >
+                Antecedentes Extras
+              </Box>
+              <FormLabel component="legend">
+                Adjunte el texto completo de la demanda con imágenes por
+                ambos lados del papel  </FormLabel>
             <TextField
               id="outlined-basic"
               label="Agregar comentarios adicionales"
               variant="outlined"
-            />
-          </form>
-
-          <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
-            <Button
-              type="submit"
+              margin="normal"
               fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Continuar
-            </Button>
-          </Box>
-      </div>
+              />
+              <input
+              accept="image/*"
+              className={classes.input}
+              style={{ display: "none" }}
+              id="raised-button-file"
+              multiple
+              type="file"
+            />
+
+            <label htmlFor="raised-button-file">
+              <CloudUploadIcon
+                className={classes.upload}
+                fontSize="large"
+                color="primary"
+              />
+            </label>
+            
+            </Typography>
+            <Typography color="primary">
+              <Box
+                color="primary"
+                fontWeight="fontWeightBold"
+                m={1}
+                fontSize={20}
+                m={1}
+              >
+                Comentarios
+              </Box>
+            </Typography>
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              onChange={(ev) => {
+                this.syncFechaChanges(ev.target.value);
+              }}
+            />
+          </div>
+        </FormControl>
       </Container>
     );
   }
