@@ -25,6 +25,14 @@ import Avatar from "@material-ui/core/Avatar";
 import Admin from "./Admin";
 import GeneralUser from "./GeneralUser";
 import AdminTable from "./AdminTable";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import ListItemText from "@material-ui/core/ListItemText";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import PeopleIcon from "@material-ui/icons/People";
+import BarChartIcon from "@material-ui/icons/BarChart";
+import LayersIcon from "@material-ui/icons/Layers";
 
 function Copyright() {
   return (
@@ -127,6 +135,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [displayDemands, setDisplayMenu] = React.useState("GENERAL");
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -197,14 +206,61 @@ export default function Dashboard() {
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        <List>{mainListItems}</List>
+        <List>
+          <div>
+            <ListItem button>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="General"
+                onClick={() => setDisplayMenu("GENERAL")}
+              />
+            </ListItem>
+
+            <ListItem button>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Reclamos"
+                onClick={() => setDisplayMenu("RECLAMOS")}
+              />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <ShoppingCartIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Demandas"
+                onClick={() => setDisplayMenu("DEMANDAS")}
+              />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <ShoppingCartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Consultas" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <ShoppingCartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Cerrar session" />
+            </ListItem>
+          </div>
+        </List>
+
         <Divider />
-        <List>{secondaryListItems}</List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          {esAdmin ? <Admin /> : <GeneralUser />}
+          {esAdmin ? (
+            <Admin displayDemands={displayDemands} />
+          ) : (
+            <GeneralUser />
+          )}
           <Box pt={4}>
             <Copyright />
           </Box>

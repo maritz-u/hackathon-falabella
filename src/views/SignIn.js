@@ -84,7 +84,7 @@ class SignIn extends Component {
       localStorage.setItem("usuarioActual", JSON.stringify(usuarioActual));
 
       const usuario = localStorage.getItem("usuarioActual");
-      window.location.href = "hackathon-falabella/dashboard";
+      window.location.href = "/dashboard";
     } else {
       this.setState({ error: true });
     }

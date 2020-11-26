@@ -3,34 +3,38 @@ import { Bar } from "@reactchartjs/react-chart.js";
 import { makeStyles } from "@material-ui/core";
 import Title from "./Title";
 
+const storageReclamos = localStorage.getItem("reclamos");
+const reclamos = JSON.parse(storageReclamos);
+
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: "relative",
     // height: "40vh",
-    width: "80vw",
+    // width: "80vw",
   },
 }));
 
+const getMaterias = (materia) =>
+  reclamos.filter((reclamo) => reclamo.materia === materia);
+
 const data = {
-  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  labels: [
+    "Accidente",
+    "Uso del estacionamiento",
+    "Despacho del producto",
+    "Publicidad Engañosa",
+  ],
   datasets: [
     {
-      label: "# of Votes",
-      data: [19, 19, 19, 19, 20],
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(255, 206, 86, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(153, 102, 255, 0.2)",
+      label: "Materias",
+      data: [
+        getMaterias("Accidente").length,
+        getMaterias("Uso del estacionamiento").length,
+        getMaterias("Despacho del producto").length,
+        getMaterias("Publicidad").length,
       ],
-      borderColor: [
-        "rgba(255, 99, 132, 1)",
-        "rgba(54, 162, 235, 1)",
-        "rgba(255, 206, 86, 1)",
-        "rgba(75, 192, 192, 1)",
-        "rgba(153, 102, 255, 1)",
-      ],
+      backgroundColor: ["#0047BA", "#E9024C", "#77BC20", "#99999A"],
+      borderColor: ["#0047BA", "#E9024C", "#77BC20", "#99999A"],
       borderWidth: 1,
     },
   ],
@@ -52,11 +56,8 @@ const VerticalBar = () => {
   const classes = useStyles();
   return (
     <>
-      <Title>Indicadores</Title>
-      <div
-        className={`chart-container ${classes.wrapper}`}
-        styles={"position: relative; height:40vh; width:80vw"}
-      >
+      <Title>Indicadores: Materias</Title>
+      <div className={`chart-container ${classes.wrapper}`}>
         <Bar data={data} options={options} />
       </div>
     </>

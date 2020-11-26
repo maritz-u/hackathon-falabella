@@ -7,8 +7,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Title from "./Title";
 
-const storageReclamos = localStorage.getItem("reclamos");
-const reclamos = storageReclamos ? JSON.parse(storageReclamos) : [];
+const storageDemandas = localStorage.getItem("demandas");
+const reclamos = storageDemandas ? JSON.parse(storageDemandas) : [];
 
 export default function AdminTable() {
   return (
