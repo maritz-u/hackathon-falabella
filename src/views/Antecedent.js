@@ -364,15 +364,15 @@ class Antecedentes extends Component {
             </form>
 
             <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Continuar
-              </Button>
+              {/*<Button*/}
+              {/*  type="submit"*/}
+              {/*  fullWidth*/}
+              {/*  variant="contained"*/}
+              {/*  color="primary"*/}
+              {/*  className={classes.submit}*/}
+              {/*>*/}
+              {/*  Continuar*/}
+              {/*</Button>*/}
             </Box>
           </form>
         </div>
