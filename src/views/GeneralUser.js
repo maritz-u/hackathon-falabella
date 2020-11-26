@@ -10,6 +10,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import DemandWrapper from "./DemandWrapper";
+import ClaimWrapper from "./ClaimWrapper";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -52,22 +53,22 @@ const GeneralUser = () => {
                   control={<Radio color="primary" />}
                   label="Demanda"
                 />
+                <FormControlLabel
+                  value="CONSULTAS"
+                  control={<Radio color="primary" />}
+                  label="Consultas"
+                />
               </RadioGroup>
             </FormControl>
           </Paper>
         </Grid>
       </Grid>
 
-      {value === "RECLAMO" && (
-        <Grid item xs={12} md={12} lg={12}>
-          <Paper className={classes.paper}>
-            <Title>Registro de incidencias</Title>
-            <Divider />
-            <Case />
-          </Paper>
-        </Grid>
-      )}
+      {value === "RECLAMO" && <ClaimWrapper />}
+    
+      
       {value === "DEMANDA" && <DemandWrapper />}
+  
     </Grid>
   );
 };

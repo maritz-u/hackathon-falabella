@@ -246,7 +246,7 @@ export default function Dashboard() {
               <ListItemIcon>
                 <ShoppingCartIcon />
               </ListItemIcon>
-              <ListItemText primary="Cerrar session" />
+              <ListItemText primary="Cerrar sesión" />
             </ListItem>
           </div>
         </List>
