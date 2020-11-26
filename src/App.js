@@ -12,7 +12,7 @@ import Entry from "./views/Entry";
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
-      <BrowserRouter>
+      <BrowserRouter basename="/hackathon-falabella">
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/">
