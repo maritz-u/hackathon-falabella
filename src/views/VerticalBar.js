@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const getMaterias = (materia) =>
-  reclamos.filter((reclamo) => reclamo.materia === materia);
+  reclamos && reclamos.filter((reclamo) => reclamo.materia === materia) || [];
 
 const data = {
   labels: [
