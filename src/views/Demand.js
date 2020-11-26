@@ -54,7 +54,8 @@ const styles = {
   },
   Tipografia: {
       marginRight: theme.spacing(10),
-  }
+  },
+  
 };
 
 class Demandas extends Component {
@@ -167,10 +168,9 @@ class Demandas extends Component {
               variant="outlined"
               margin="normal"
               fullWidth
-              />
-              <input
+            />
+            <input
               accept="image/*"
-              className={classes.input}
               style={{ display: "none" }}
               id="raised-button-file"
               multiple
