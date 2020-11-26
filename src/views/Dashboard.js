@@ -30,6 +30,11 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ListItemText from "@material-ui/core/ListItemText";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import PersonIcon from "@material-ui/icons/Person";
+import PieChartIcon from "@material-ui/icons/PieChart";
+import TimelineIcon from "@material-ui/icons/Timeline";
+
 import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import LayersIcon from "@material-ui/icons/Layers";
@@ -208,43 +213,53 @@ export default function Dashboard() {
         </div>
         <List>
           <div>
-            <ListItem button>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary="General"
-                onClick={() => setDisplayMenu("GENERAL")}
-              />
-            </ListItem>
+            {esAdmin && (
+              <>
+                <ListItem button>
+                  <ListItemIcon>
+                    <DashboardIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="General"
+                    onClick={() => setDisplayMenu("GENERAL")}
+                  />
+                </ListItem>
+                <ListItem button>
+                  <ListItemIcon>
+                    <PieChartIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Reclamos"
+                    onClick={() => setDisplayMenu("RECLAMOS")}
+                  />
+                </ListItem>
+                <ListItem button>
+                  <ListItemIcon>
+                    <BarChartIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Demandas"
+                    onClick={() => setDisplayMenu("DEMANDAS")}
+                  />
+                </ListItem>
+                <ListItem button>
+                  <ListItemIcon>
+                    <TimelineIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Consultas" />
+                </ListItem>
+              </>
+            )}
 
             <ListItem button>
               <ListItemIcon>
-                <DashboardIcon />
+                <PersonIcon />
               </ListItemIcon>
-              <ListItemText
-                primary="Reclamos"
-                onClick={() => setDisplayMenu("RECLAMOS")}
-              />
+              <ListItemText primary="Mi Perfil" />
             </ListItem>
             <ListItem button>
               <ListItemIcon>
-                <ShoppingCartIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary="Demandas"
-                onClick={() => setDisplayMenu("DEMANDAS")}
-              />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <ShoppingCartIcon />
-              </ListItemIcon>
-              <ListItemText primary="Consultas" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <ShoppingCartIcon />
+                <ExitToAppIcon />
               </ListItemIcon>
               <ListItemText primary="Cerrar sesión" />
             </ListItem>
