@@ -16,7 +16,7 @@ function App() {
 
   return (
     <MuiThemeProvider theme={theme}>
-      <BrowserRouter basename="/hackathon-falabella">
+      <BrowserRouter basename="/">
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/">

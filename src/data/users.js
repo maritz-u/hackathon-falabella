@@ -38,13 +38,15 @@ const usuarios = [
     nombre: "Jose Martínez",
     email: "admin@facilito.com",
     cargo: "Asesor servicio al cliente",
-    negocio: "FACILITO",
+    negocio: "ADMIN",
     pais: "CHILE",
     tipoUsuario: "ADMIN",
   },
 ];
 
 const iconos = {
+  ADMIN:
+    "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   SODIMAC:
     "https://pbs.twimg.com/profile_images/628570533064507392/o46Pj8L3.png",
   FALABELLA:
