@@ -8,7 +8,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
-import Title from "./Title";
+import Button from '@material-ui/core/Button';
 import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(3),
+  },
+  buttonNext:{
+    margin: theme.spacing(1),
   },
 }));
 
@@ -190,6 +193,11 @@ export default function CheckboxesGroup({ handleInputChange }) {
               type="number"
               onChange={(e) => handleInputChange(e)}
             />
+            <div className={classes.buttonNext}>
+              <Button variant="contained" color="primary">
+        Continuar
+      </Button>
+      </div>
           </FormControl>
         </FormGroup>
       </div>
