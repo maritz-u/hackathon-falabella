@@ -5,6 +5,9 @@ import Container from "@material-ui/core/Container";
 import SignIn from "./views/SignIn";
 import theme from "./theme/theme";
 import Dashboard from "./views/Dashboard";
+import System2 from "./views/System2";
+import Demand from "./views/Demand";
+import Entry from "./views/Entry";
 
 function App() {
   return (
