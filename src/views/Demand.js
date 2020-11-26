@@ -45,6 +45,7 @@ const styles = {
   logoFacilito: {
     width: "100%", // Fix IE 11 issue.
   },
+  
 };
 
 class Demandas extends Component {

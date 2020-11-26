@@ -183,7 +183,7 @@ class System2 extends Component {
       </form>
     
       <FormLabel component="legend">Demandado</FormLabel>
-      <FormGroup aria-label="position" row>
+      <FormGroup >
         
         <FormControlLabel
           value="falabella"

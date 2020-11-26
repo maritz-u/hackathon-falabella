@@ -6,12 +6,12 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
 import Title from "./Title";
 import Claim from "./Claim";
 import Antecedent from "./Antecedent";
 import { Divider } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,9 +25,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
   },
   textField: {
-    marginLeft: theme.spacing(1),
+    marginLeft: theme.spacing(3),
     marginRight: theme.spacing(1),
-    width: 200,
+    width: 250,
   },
 }));
 
@@ -85,7 +85,7 @@ const Case = () => {
           onSubmit={(e) => guardarDatos(e)}
         >
           <FormControl component="fieldset" className={classes.formControl}>
-            <Title>Medio de reclamo</Title>
+             <Title >Medio de reclamo</Title>
             <FormGroup>
               <FormControlLabel
                 control={
@@ -196,18 +196,6 @@ const Case = () => {
             </>
           )}
           {displayPublicity && <Antecedent />}
-
-          <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Siguiente
-            </Button>
-          </Box>
         </form>
       </Container>
     </div>
