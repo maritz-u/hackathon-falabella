@@ -43,7 +43,7 @@ export default function AdminTable() {
               <TableCell>{reclamo.interiorLocal}</TableCell>
               <TableCell>{reclamo.tipoAccidente}</TableCell>
               <TableCell>{reclamo.lesion}</TableCell>
-              <TableCell>{reclamo.monto}</TableCell>
+              <TableCell>{reclamo.monto} CLP</TableCell>
             </TableRow>
           ))}
         </TableBody>

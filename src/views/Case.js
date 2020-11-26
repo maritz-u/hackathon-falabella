@@ -53,9 +53,9 @@ const Case = () => {
   const handleInputChange = (event) => {
     console.log(event.target.name);
     console.log(event.target.value);
-    if (event.target.value === "ACCIDENT") {
+    if (event.target.value === "Accidente") {
       setDisplayAccident(!displayAccident);
-    } else if (event.target.value === "PUBLICITY") {
+    } else if (event.target.value === "Publicidad") {
       setDisplayPublicity(!displayPublicity);
     }
 
@@ -133,7 +133,7 @@ const Case = () => {
               />
               <FormControlLabel
                 name="materia"
-                value="PUBLICITY"
+                value="Publicidad"
                 control={
                   <Checkbox
                     color="primary"
@@ -145,7 +145,7 @@ const Case = () => {
               />
               <FormControlLabel
                 name="materia"
-                value="ACCIDENT"
+                value="Accidente"
                 control={
                   <Checkbox
                     color="primary"
