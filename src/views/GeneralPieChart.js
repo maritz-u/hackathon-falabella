@@ -54,7 +54,7 @@ const GeneralPie = () => {
         consulta: <Chip label="URGENTE" />{" "}
       </p>
       <p>
-        Reclamo: <Chip label="OPTIMO" />{" "}
+        Reclamo: <Chip label="OPTIMO" color="primary"/>{" "}
       </p>
       <p>
         demanda: <Chip label="OPTIMO" color="primary" />
