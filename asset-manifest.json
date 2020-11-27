@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/hackathon-falabella/static/js/main.0f64d905.chunk.js",
-    "main.js.map": "/hackathon-falabella/static/js/main.0f64d905.chunk.js.map",
+    "main.js": "/hackathon-falabella/static/js/main.5f7914be.chunk.js",
+    "main.js.map": "/hackathon-falabella/static/js/main.5f7914be.chunk.js.map",
     "runtime-main.js": "/hackathon-falabella/static/js/runtime-main.654bc29f.js",
     "runtime-main.js.map": "/hackathon-falabella/static/js/runtime-main.654bc29f.js.map",
-    "static/js/2.07844244.chunk.js": "/hackathon-falabella/static/js/2.07844244.chunk.js",
-    "static/js/2.07844244.chunk.js.map": "/hackathon-falabella/static/js/2.07844244.chunk.js.map",
+    "static/js/2.df091c3a.chunk.js": "/hackathon-falabella/static/js/2.df091c3a.chunk.js",
+    "static/js/2.df091c3a.chunk.js.map": "/hackathon-falabella/static/js/2.df091c3a.chunk.js.map",
     "index.html": "/hackathon-falabella/index.html",
-    "static/js/2.07844244.chunk.js.LICENSE.txt": "/hackathon-falabella/static/js/2.07844244.chunk.js.LICENSE.txt",
+    "static/js/2.df091c3a.chunk.js.LICENSE.txt": "/hackathon-falabella/static/js/2.df091c3a.chunk.js.LICENSE.txt",
     "static/media/Logo.2bec0cbf.png": "/hackathon-falabella/static/media/Logo.2bec0cbf.png"
   },
   "entrypoints": [
     "static/js/runtime-main.654bc29f.js",
-    "static/js/2.07844244.chunk.js",
-    "static/js/main.0f64d905.chunk.js"
+    "static/js/2.df091c3a.chunk.js",
+    "static/js/main.5f7914be.chunk.js"
   ]
 }
