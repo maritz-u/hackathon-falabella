@@ -15,6 +15,7 @@ import theme from "../theme/theme";
 import { logDOM } from "@testing-library/react";
 import { usuariosValidos, usuarios } from "../data/users";
 import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router";
 
 function Copyright() {
   return (
@@ -84,7 +85,7 @@ class SignIn extends Component {
       localStorage.setItem("usuarioActual", JSON.stringify(usuarioActual));
 
       const usuario = localStorage.getItem("usuarioActual");
-      window.location.href = "/dashboard";
+      this.props.history.push("/dashboard");
     } else {
       this.setState({ error: true });
     }
@@ -168,4 +169,4 @@ class SignIn extends Component {
   }
 }
 
-export default withStyles(styles)(SignIn);
+export default withRouter(withStyles(styles)(SignIn));

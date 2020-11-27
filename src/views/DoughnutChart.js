@@ -1,6 +1,5 @@
 import React from "react";
-import { Pie } from "@reactchartjs/react-chart.js";
-import Chip from "@material-ui/core/Chip";
+import { Doughnut } from "@reactchartjs/react-chart.js";
 import { makeStyles } from "@material-ui/core";
 import Title from "./Title";
 
@@ -10,6 +9,11 @@ const reclamos = JSON.parse(storageReclamos);
 const storageDemandas = localStorage.getItem("demandas");
 const demandas = JSON.parse(storageDemandas);
 
+const casos = demandas.concat(reclamos);
+
+const getCountries = (materia) =>
+  (casos && casos.filter((reclamo) => reclamo.materia === materia)) || [];
+
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: "relative",
@@ -17,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const data = {
-  labels: ["Demanda", "Consulta", "Reclamos"],
+  labels: ["Colombia", "Chile", "Perú", "Argentina"],
   datasets: [
     {
       label: "Materias",
@@ -49,19 +53,19 @@ const GeneralPie = () => {
   const classes = useStyles();
   return (
     <>
-      <Title>Casos totales por contacto </Title>
-      <p>
-        consulta: <Chip label="URGENTE" />{" "}
-      </p>
-      <p>
-        Reclamo: <Chip label="OPTIMO" />{" "}
-      </p>
-      <p>
-        demanda: <Chip label="OPTIMO" color="primary" />
-      </p>
+      <Title>Casos totales por país </Title>
+      {/*<p>*/}
+      {/*  consulta: <Chip label="URGENTE" />{" "}*/}
+      {/*</p>*/}
+      {/*<p>*/}
+      {/*  Reclamo: <Chip label="OPTIMO" />{" "}*/}
+      {/*</p>*/}
+      {/*<p>*/}
+      {/*  demanda: <Chip label="OPTIMO" color="primary" />*/}
+      {/*</p>*/}
 
       <div className={`chart-container ${classes.wrapper}`}>
-        <Pie data={data} options={options} />
+        <Doughnut data={data} options={options} />
       </div>
     </>
   );

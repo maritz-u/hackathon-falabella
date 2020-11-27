@@ -9,13 +9,11 @@ const reclamos = JSON.parse(storageReclamos);
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: "relative",
-    // height: "40vh",
-    // width: "80vw",
   },
 }));
 
 const getMaterias = (materia) =>
-  reclamos && reclamos.filter((reclamo) => reclamo.materia === materia) || [];
+  (reclamos && reclamos.filter((reclamo) => reclamo.materia === materia)) || [];
 
 const data = {
   labels: [
@@ -56,7 +54,7 @@ const VerticalBar = () => {
   const classes = useStyles();
   return (
     <>
-      <Title>Indicadores: Materias</Title>
+      <Title>Indicadores: Casos totales por materia</Title>
       <div className={`chart-container ${classes.wrapper}`}>
         <Bar data={data} options={options} />
       </div>
