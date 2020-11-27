@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: "relative",
   },
+  redChip: {
+    backgroundColor: "#E9024C",
+    color: "#fff",
+  },
 }));
 
 const data = {
@@ -21,7 +25,11 @@ const data = {
   datasets: [
     {
       label: "Materias",
-      data: [demandas && demandas.lenght || 0, 100, reclamos && reclamos.length || 0],
+      data: [
+        (demandas && demandas.length) || 0,
+        30,
+        (reclamos && reclamos.length) || 0,
+      ],
       backgroundColor: ["#0047BA", "#E9024C", "#77BC20"],
       borderColor: ["#0047BA", "#E9024C", "#77BC20"],
       borderWidth: 1,
@@ -47,13 +55,13 @@ const GeneralPie = () => {
     <>
       <Title>Casos totales por contacto </Title>
       <p>
-        consulta: <Chip label="URGENTE" />{" "}
+        Consulta: <Chip label="URGENTE" className={classes.redChip} />
       </p>
       <p>
-        Reclamo: <Chip label="OPTIMO" />{" "}
+        Reclamo: <Chip label="OPTIMO" color="primary" />
       </p>
       <p>
-        demanda: <Chip label="OPTIMO" color="primary" />
+        Demanda: <Chip label="OPTIMO" color="primary" />
       </p>
 
       <div className={`chart-container ${classes.wrapper}`}>

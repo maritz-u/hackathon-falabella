@@ -34,17 +34,16 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PersonIcon from "@material-ui/icons/Person";
 import PieChartIcon from "@material-ui/icons/PieChart";
 import TimelineIcon from "@material-ui/icons/Timeline";
-
-import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
-import LayersIcon from "@material-ui/icons/Layers";
+import { withRouter } from "react-router";
+import { withStyles } from "@material-ui/styles";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Facilito
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -137,7 +136,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+const Dashboard = ({ history }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [displayDemands, setDisplayMenu] = React.useState("GENERAL");
@@ -152,9 +151,9 @@ export default function Dashboard() {
 
   const usuario = JSON.parse(storageUsuario);
 
-  const getLogo = iconos[usuario.negocio];
+  const getLogo = iconos[usuario && usuario.negocio];
 
-  const esAdmin = usuario.tipoUsuario === "ADMIN";
+  const esAdmin = usuario && usuario.tipoUsuario === "ADMIN";
 
   return (
     <div className={classes.root}>
@@ -261,7 +260,10 @@ export default function Dashboard() {
               <ListItemIcon>
                 <ExitToAppIcon />
               </ListItemIcon>
-              <ListItemText primary="Cerrar sesión" />
+              <ListItemText
+                primary="Cerrar sesión"
+                onClick={() => history.push("/")}
+              />
             </ListItem>
           </div>
         </List>
@@ -283,4 +285,6 @@ export default function Dashboard() {
       </main>
     </div>
   );
-}
+};
+
+export default withRouter(Dashboard);

@@ -2,9 +2,8 @@ import { makeStyles } from "@material-ui/core";
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import System2 from "./System2";
-import Demand from "./Demand";
-import Entry from "./Entry";
+import Claim from "../views/Claim";
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -19,18 +18,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DemandWrapper = () => {
+const ClaimWrapper = () => {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} md={12} lg={12}>
-      <Paper className={classes.paper}>
-        <Demand />
-        <Entry />
-        <System2 />
-      </Paper>
+    <Grid container spacing={3}>
+      <Grid item xs={12} md={12} lg={12}>
+        <Paper className={classes.paper}>
+          <Claim />
+        </Paper>
+      </Grid>
     </Grid>
   );
 };
 
-export default DemandWrapper;
+export default ClaimWrapper;

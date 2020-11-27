@@ -75,11 +75,6 @@ export default function CheckboxesGroup() {
 
   return (
     <div className={classes.root}>
-      <Typography component="h1" variant="h5" color="primary">
-        <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-          Sobre el accidente
-        </Box>
-      </Typography>
       <FormControl component="fieldset" className={classes.formControl}>
         <FormLabel component="legend">
           ¿El accidente fue al interior del local?
@@ -87,13 +82,23 @@ export default function CheckboxesGroup() {
         <FormGroup>
           <FormControlLabel
             control={
-              <Checkbox checked={sí} onChange={handleChange} name="sí" />
+              <Checkbox
+                checked={sí}
+                color="primary"
+                onChange={handleChange}
+                name="sí"
+              />
             }
             label="sí"
           />
           <FormControlLabel
             control={
-              <Checkbox checked={no} onChange={handleChange} name="no" />
+              <Checkbox
+                checked={no}
+                color="primary"
+                onChange={handleChange}
+                name="no"
+              />
             }
             label="no"
           />
@@ -112,6 +117,7 @@ export default function CheckboxesGroup() {
                 checked={InseguridadLocal}
                 onChange={handleInseguridad}
                 name="Condición insegura del local"
+                color="primary"
               />
             }
             label="InseguridadLocal"
@@ -122,6 +128,7 @@ export default function CheckboxesGroup() {
                 checked={InseguridadPersonal}
                 onChange={handleInseguridad}
                 name="Condición insegura por personal del local"
+                color="primary"
               />
             }
             label="InseguridadPersonal"
@@ -132,6 +139,7 @@ export default function CheckboxesGroup() {
                 checked={InseguridadCliente}
                 onChange={handleInseguridad}
                 name="Acto inseguro del cliente"
+                color="primary"
               />
             }
             label="InseguridadCliente"
@@ -152,6 +160,7 @@ export default function CheckboxesGroup() {
                 checked={siProcess}
                 onChange={handleProcess}
                 name="sí"
+                color="primary"
               />
             }
             label="sí"
@@ -161,6 +170,7 @@ export default function CheckboxesGroup() {
               <Checkbox
                 checked={noProcess}
                 onChange={handleProcess}
+                color="primary"
                 name="no"
               />
             }
@@ -176,20 +186,31 @@ export default function CheckboxesGroup() {
               <Checkbox
                 checked={Levisima}
                 onChange={handleLesion}
+                color="primary"
                 name="Levisima"
               />
             }
-            label="Levisima"
+            label="Levísima"
           />
           <FormControlLabel
             control={
-              <Checkbox checked={Leve} onChange={handleLesion} name="Leve" />
+              <Checkbox
+                checked={Leve}
+                color="primary"
+                onChange={handleLesion}
+                name="Leve"
+              />
             }
             label="Leve"
           />
           <FormControlLabel
             control={
-              <Checkbox checked={Grave} onChange={handleLesion} name="Grave" />
+              <Checkbox
+                checked={Grave}
+                color="primary"
+                onChange={handleLesion}
+                name="Grave"
+              />
             }
             label="Grave"
           />
@@ -199,9 +220,10 @@ export default function CheckboxesGroup() {
                 checked={Gravisima}
                 onChange={handleLesion}
                 name="Gravisima"
+                color="primary"
               />
             }
-            label="Gravisima"
+            label="Gravísima"
           />
         </FormGroup>
         <FormLabel component="legend">
@@ -210,13 +232,23 @@ export default function CheckboxesGroup() {
         <FormGroup>
           <FormControlLabel
             control={
-              <Checkbox checked={siSalud} onChange={handleSalud} name="sí" />
+              <Checkbox
+                checked={siSalud}
+                color="primary"
+                onChange={handleSalud}
+                name="sí"
+              />
             }
             label="sí"
           />
           <FormControlLabel
             control={
-              <Checkbox checked={noSalud} onChange={handleSalud} name="no" />
+              <Checkbox
+                checked={noSalud}
+                color="primary"
+                onChange={handleSalud}
+                name="no"
+              />
             }
             label="no"
           />

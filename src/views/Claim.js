@@ -8,7 +8,6 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
-import Button from '@material-ui/core/Button';
 import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(3),
   },
-  buttonNext:{
+  buttonNext: {
     margin: theme.spacing(1),
   },
 }));
@@ -32,7 +31,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
         <FormGroup>
           <Typography component="h1" variant="h5" color="primary">
             <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-              Tipo de accidente
+              Sobre el accidente
             </Box>
           </Typography>
           <FormLabel component="legend">
@@ -45,6 +44,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
                   <Checkbox
                     name="interiorLocal"
                     value="si"
+                    color="primary"
                     onChange={(e) => handleInputChange(e)}
                   />
                 }
@@ -55,6 +55,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
                   <Checkbox
                     name="interiorLocal"
                     value="no"
+                    color="primary"
                     onChange={(e) => handleInputChange(e)}
                   />
                 }
@@ -75,22 +76,22 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     color="primary"
                     name="tipoAccidente"
                     value="inseguridad local"
+                    color="primary"
                     onChange={(e) => handleInputChange(e)}
                   />
                 }
-                label="InseguridadLocal"
+                label="Inseguridad Local"
               />
               <FormControlLabel
                 control={
                   <Checkbox
-                    color="
-                    primary"
+                    color="primary"
                     name="tipoAccidente"
                     value="inseguridad personal"
                     onChange={(e) => handleInputChange(e)}
                   />
                 }
-                label="InseguridadPersonal"
+                label="Inseguridad Personal"
               />
               <FormControlLabel
                 control={
@@ -101,7 +102,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     onChange={(e) => handleInputChange(e)}
                   />
                 }
-                label="InseguridadCliente"
+                label="Inseguridad Cliente"
               />
             </FormGroup>
           </FormControl>
@@ -124,7 +125,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     onChange={(e) => handleInputChange(e)}
                   />
                 }
-                label="Levisima"
+                label="Levísima"
               />
               <FormControlLabel
                 control={
@@ -157,7 +158,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     onChange={(e) => handleInputChange(e)}
                   />
                 }
-                label="Gravisima"
+                label="Gravísima"
               />
             </FormGroup>
             <FormLabel component="legend">
@@ -193,11 +194,6 @@ export default function CheckboxesGroup({ handleInputChange }) {
               type="number"
               onChange={(e) => handleInputChange(e)}
             />
-            <div className={classes.buttonNext}>
-              <Button variant="contained" color="primary">
-        Continuar
-      </Button>
-      </div>
           </FormControl>
         </FormGroup>
       </div>
