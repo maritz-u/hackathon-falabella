@@ -29,12 +29,13 @@ export default function CheckboxesGroup({ handleInputChange }) {
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.root}>
+      
         <FormGroup>
-          <Typography component="h1" variant="h5" color="primary">
-            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-              Tipo de accidente
-            </Box>
-          </Typography>
+        <Typography component="h1" variant="h5" color="primary">
+        <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+          Sobre el accidente
+        </Box>
+      </Typography>
           <FormLabel component="legend">
             ¿El accidente fue al interior del local?
           </FormLabel>
@@ -45,7 +46,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
                   <Checkbox
                     name="interiorLocal"
                     value="si"
-                    onChange={(e) => handleInputChange(e)}
+                    color="primary"
                   />
                 }
                 label="sí"
@@ -55,7 +56,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
                   <Checkbox
                     name="interiorLocal"
                     value="no"
-                    onChange={(e) => handleInputChange(e)}
+                    color="primary"
                   />
                 }
                 label="no"
@@ -75,7 +76,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     color="primary"
                     name="tipoAccidente"
                     value="inseguridad local"
-                    onChange={(e) => handleInputChange(e)}
+                    color="primary"
                   />
                 }
                 label="InseguridadLocal"
@@ -83,11 +84,9 @@ export default function CheckboxesGroup({ handleInputChange }) {
               <FormControlLabel
                 control={
                   <Checkbox
-                    color="
-                    primary"
+                    color="primary"
                     name="tipoAccidente"
                     value="inseguridad personal"
-                    onChange={(e) => handleInputChange(e)}
                   />
                 }
                 label="InseguridadPersonal"
@@ -98,7 +97,6 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     color="primary"
                     name="tipoAccidente"
                     value="inseguridad cliente"
-                    onChange={(e) => handleInputChange(e)}
                   />
                 }
                 label="InseguridadCliente"
@@ -121,7 +119,6 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     color="primary"
                     name="lesion"
                     value="Levisima"
-                    onChange={(e) => handleInputChange(e)}
                   />
                 }
                 label="Levisima"
@@ -132,7 +129,6 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     color="primary"
                     name="lesion"
                     value="Leve"
-                    onChange={(e) => handleInputChange(e)}
                   />
                 }
                 label="Leve"
@@ -143,7 +139,6 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     color="primary"
                     name="lesion"
                     value="grave"
-                    onChange={(e) => handleInputChange(e)}
                   />
                 }
                 label="Grave"
@@ -154,7 +149,6 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     color="primary"
                     name="lesion"
                     value="gravisima"
-                    onChange={(e) => handleInputChange(e)}
                   />
                 }
                 label="Gravisima"
@@ -191,7 +185,6 @@ export default function CheckboxesGroup({ handleInputChange }) {
               name="monto"
               label="Monto reclamado"
               type="number"
-              onChange={(e) => handleInputChange(e)}
             />
             <div className={classes.buttonNext}>
               <Button variant="contained" color="primary">

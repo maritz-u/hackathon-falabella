@@ -11,7 +11,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Box from "@material-ui/core/Box";
-import { Alert } from "@material-ui/lab";
+import { Alert, AlertTitle } from "@material-ui/lab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -24,6 +24,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Select from '@material-ui/core/Select';
+
+
 
 
 
@@ -65,6 +67,7 @@ const styles = {
  formControl: {
    width: 390
  },
+
 };
 
 class System2 extends Component {
@@ -338,10 +341,17 @@ class System2 extends Component {
                 className={classes.submit}
               >
                 Continuar
-                  
-              </Button>
+              </Button> 
+              
+
+              <Alert severity="success">
+        <AlertTitle>Success</AlertTitle>
+        This is a success alert — <strong>check it out!</strong>
+      </Alert>
+
+
             </Box>
-            
+  
           </form>
         </div>
       </Container>
@@ -350,5 +360,3 @@ class System2 extends Component {
 }
 
 export default withStyles(styles)(System2);
-
-
