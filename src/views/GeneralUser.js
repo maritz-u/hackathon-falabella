@@ -36,7 +36,7 @@ const GeneralUser = () => {
     <Grid container spacing={3}>
       <Grid item xs={12}>
         <Paper className={classes.paper}>
-          <FormLabel component="legend">Seleccione el tipo de caso:</FormLabel>
+          <Title>Seleccione el tipo de caso:</Title>
           <FormControl component="fieldset">
             <RadioGroup name="type" value={value} onChange={handleChange}>
               <FormControlLabel

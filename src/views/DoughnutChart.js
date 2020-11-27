@@ -2,21 +2,28 @@ import React from "react";
 import { Doughnut } from "@reactchartjs/react-chart.js";
 import { makeStyles } from "@material-ui/core";
 import Title from "./Title";
+import Chip from "@material-ui/core/Chip";
 
 const storageReclamos = localStorage.getItem("reclamos");
 const reclamos = JSON.parse(storageReclamos);
 
 const storageDemandas = localStorage.getItem("demandas");
 const demandas = JSON.parse(storageDemandas);
+const casos = demandas && demandas.length > 0 && demandas.concat(reclamos);
 
-// const casos = demandas.concat(reclamos);
+console.log("LALALA12", casos);
+const getCountries = (pais) =>
+  (casos && casos.filter((caso) => caso.pais === pais)) || [];
 
-// const getCountries = (materia) =>
-//   (casos && casos.filter((reclamo) => reclamo.materia === materia)) || [];
+console.log("TEST", getCountries("Colombia"));
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: "relative",
+  },
+  redChip: {
+    backgroundColor: "#E9024C",
+    color: "#fff",
   },
 }));
 
@@ -26,12 +33,13 @@ const data = {
     {
       label: "Materias",
       data: [
-        (demandas && demandas.length) || 0,
-        30,
-        (reclamos && reclamos.length) || 0,
+        getCountries("Colombia").length,
+        getCountries("Chile").length,
+        getCountries("Perú").length,
+        getCountries("Argentina").length,
       ],
-      backgroundColor: ["#0047BA", "#E9024C", "#77BC20"],
-      borderColor: ["#0047BA", "#E9024C", "#77BC20"],
+      backgroundColor: ["#0047BA", "#E9024C", "#77BC20", "#99999A"],
+      borderColor: ["#0047BA", "#E9024C", "#77BC20", "#99999A"],
       borderWidth: 1,
     },
   ],
@@ -54,15 +62,18 @@ const GeneralPie = () => {
   return (
     <>
       <Title>Casos totales por país </Title>
-      {/*<p>*/}
-      {/*  consulta: <Chip label="URGENTE" />{" "}*/}
-      {/*</p>*/}
-      {/*<p>*/}
-      {/*  Reclamo: <Chip label="OPTIMO" />{" "}*/}
-      {/*</p>*/}
-      {/*<p>*/}
-      {/*  demanda: <Chip label="OPTIMO" color="primary" />*/}
-      {/*</p>*/}
+      <p>
+        Chile: <Chip label="URGENTE" className={classes.redChip} />
+      </p>
+      <p>
+        Argentina: <Chip label="OPTIMO" color="primary" />
+      </p>
+      <p>
+        Colombia: <Chip label="OPTIMO" color="primary" />
+      </p>
+      <p>
+        Perú: <Chip label="OPTIMO" color="primary" />
+      </p>
 
       <div className={`chart-container ${classes.wrapper}`}>
         <Doughnut data={data} options={options} />

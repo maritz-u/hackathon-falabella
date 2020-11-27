@@ -2,6 +2,7 @@ import React from "react";
 import { Bar } from "@reactchartjs/react-chart.js";
 import { makeStyles } from "@material-ui/core";
 import Title from "./Title";
+import Chip from "@material-ui/core/Chip";
 
 const storageReclamos = localStorage.getItem("reclamos");
 const reclamos = JSON.parse(storageReclamos);
