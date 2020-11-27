@@ -13,7 +13,7 @@ console.log("Cargando el localStorage...");
 const AdminTableDemand = () => {
   return (
     <React.Fragment>
-      <Title>Reclamos reportados</Title>
+      <Title>Demandas reportadas</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
