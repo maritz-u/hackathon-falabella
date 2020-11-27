@@ -1,6 +1,5 @@
 {
   "name": "hackathon-falabella",
-  "homepage": "http://maritz-u.github.io/hackathon-falabella",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -34,10 +34,9 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PersonIcon from "@material-ui/icons/Person";
 import PieChartIcon from "@material-ui/icons/PieChart";
 import TimelineIcon from "@material-ui/icons/Timeline";
-
-import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
-import LayersIcon from "@material-ui/icons/Layers";
+import { withRouter } from "react-router";
+import { withStyles } from "@material-ui/styles";
 
 function Copyright() {
   return (
@@ -137,7 +136,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+const Dashboard = ({ history }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [displayDemands, setDisplayMenu] = React.useState("GENERAL");
@@ -261,7 +260,10 @@ export default function Dashboard() {
               <ListItemIcon>
                 <ExitToAppIcon />
               </ListItemIcon>
-              <ListItemText primary="Cerrar sesión" />
+              <ListItemText
+                primary="Cerrar sesión"
+                onClick={() => history.push("/")}
+              />
             </ListItem>
           </div>
         </List>
@@ -283,4 +285,6 @@ export default function Dashboard() {
       </main>
     </div>
   );
-}
+};
+
+export default withRouter(Dashboard);
