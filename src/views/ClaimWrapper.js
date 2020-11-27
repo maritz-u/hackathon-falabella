@@ -3,7 +3,6 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Claim from "../views/Claim";
-import Accident from "../views/Accident";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +26,6 @@ const ClaimWrapper = () => {
       <Grid item xs={12} md={12} lg={12}>
         <Paper className={classes.paper}>
           <Claim />
-          <Accident />
         </Paper>
       </Grid>
     </Grid>

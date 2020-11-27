@@ -6,16 +6,21 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
-import Title from "./Title";
 import Claim from "./Claim";
 import Antecedent from "./Antecedent";
 import { Divider } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    "& .MuiTypography-h5":{
+        marginLeft:-11,
+    },
+   
+    
   },
   formControl: {
     margin: theme.spacing(3),
@@ -85,7 +90,11 @@ const Case = () => {
           onSubmit={(e) => guardarDatos(e)}
         >
           <FormControl component="fieldset" className={classes.formControl}>
-             <Title >Medio de reclamo</Title>
+             <Typography component="h1" variant="h5" color="primary">
+            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+                Medio de reclamo
+            </Box>
+          </Typography>
             <FormGroup>
               <FormControlLabel
                 control={
@@ -121,7 +130,11 @@ const Case = () => {
                 label="Casa Matriz/Oficina Central"
               />
             </FormGroup>
-            <Title>Materias por reclamo</Title>
+            <Typography component="h1" variant="h5" color="primary">
+            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+            Materias por reclamo
+            </Box>
+          </Typography>
 
             <FormGroup>
               <FormControlLabel
