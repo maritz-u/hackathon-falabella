@@ -37,7 +37,7 @@ const AdminTableDemand = () => {
               <TableCell>{demanda.local}</TableCell>
               <TableCell>{demanda.pais}</TableCell>
               <TableCell>{demanda.abogadoEncargado}</TableCell>
-              <TableCell>{demanda.resumen} CLP</TableCell>
+              <TableCell>{demanda.resumen}</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -103,7 +103,7 @@ class SignIn extends Component {
               Bienvenido
             </Box>
           </Typography>
-          {error && <Alert severity="error">usuario incorrecto</Alert>}
+          {error && <Alert severity="error">Usuario incorrecto</Alert>}
           <form
             onSubmit={(event) => this.submitForm(event)}
             className={classes.form}

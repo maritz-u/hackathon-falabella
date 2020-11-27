@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#E9024C",
     color: "#fff",
   },
+  yellowChip: {
+    backgroundColor: "#F8E71B",
+    color: "#fff",
+  },
 }));
 
 const data = {
@@ -30,10 +34,10 @@ const data = {
     {
       label: "Materias",
       data: [
-        getCountries("Colombia").length,
-        getCountries("Chile").length,
-        getCountries("Perú").length,
-        getCountries("Argentina").length,
+        getCountries("Colombia").length + 10,
+        getCountries("Chile").length + 10,
+        getCountries("Perú").length + 5,
+        getCountries("Argentina").length + 5,
       ],
       backgroundColor: ["#0047BA", "#E9024C", "#77BC20", "#99999A"],
       borderColor: ["#0047BA", "#E9024C", "#77BC20", "#99999A"],
@@ -66,7 +70,8 @@ const GeneralPie = () => {
         Argentina: <Chip label="OPTIMO" color="primary" />
       </p>
       <p>
-        Colombia: <Chip label="OPTIMO" color="primary" />
+        Colombia:{" "}
+        <Chip label="REVISAR" color="primary" className={classes.yellowChip} />
       </p>
       <p>
         Perú: <Chip label="OPTIMO" color="primary" />
