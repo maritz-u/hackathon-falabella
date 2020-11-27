@@ -261,7 +261,7 @@ const Dashboard = ({ history }) => {
                 <ExitToAppIcon />
               </ListItemIcon>
               <ListItemText
-                primary="Cerrar sesión"
+                primary="Cerrar seión"
                 onClick={() => history.push("/")}
               />
             </ListItem>

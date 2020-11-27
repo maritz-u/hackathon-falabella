@@ -5,11 +5,11 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import Checkbox from '@material-ui/core/Checkbox';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import Checkbox from "@material-ui/core/Checkbox";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
 import Box from "@material-ui/core/Box";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import Typography from "@material-ui/core/Typography";
@@ -20,15 +20,10 @@ import theme from "../theme/theme";
 import { logDOM } from "@testing-library/react";
 import { usuariosValidos, usuarios } from "../data/users";
 import { Redirect } from "react-router-dom";
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import Select from '@material-ui/core/Select';
-
-
-
-
-
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import Select from "@material-ui/core/Select";
 
 function Copyright() {
   return (
@@ -64,10 +59,9 @@ const styles = {
   logoFacilito: {
     width: "100%", // Fix IE 11 issue.
   },
- formControl: {
-   width: 390
- },
-
+  formControl: {
+    width: 390,
+  },
 };
 
 class System2 extends Component {
@@ -81,7 +75,6 @@ class System2 extends Component {
       error: false,
     };
   }
-
 
   syncNombreChanges(nombre) {
     console.log(nombre);
@@ -118,48 +111,41 @@ class System2 extends Component {
     });
   }
 
+  //submitForm(event) {
+  //event.preventDefault();
+  //const { email } = this.state;
+  //if (usuariosValidos.includes(email)) {
+  //const usuarioActual = usuarios.find((u) => u.email === email);
+  //localStorage.setItem("usuarioActual", JSON.stringify(usuarioActual));
 
-    //submitForm(event) {
-    //event.preventDefault();
-    //const { email } = this.state;
-    //if (usuariosValidos.includes(email)) {
-    //const usuarioActual = usuarios.find((u) => u.email === email);
-    //localStorage.setItem("usuarioActual", JSON.stringify(usuarioActual));
-
-    //  const usuario = localStorage.getItem("usuarioActual");
-    //window.location.href = "/dashboard";
-    //} else {
-    //this.setState({ error: true });
-    //}
-    //}
-
-    
+  //  const usuario = localStorage.getItem("usuarioActual");
+  //window.location.href = "/dashboard";
+  //} else {
+  //this.setState({ error: true });
+  //}
+  //}
 
   render() {
     const { classes } = this.props;
     const { error } = this.state;
 
-       return (
+    return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          
-          
           {error && <Alert severity="error">usuario incorrecto</Alert>}
           <form
             onSubmit={(event) => this.submitForm(event)}
             className={classes.form}
             noValidate
           >
+            <Typography component="h1" variant="h5" color="primary">
+              <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+                Datos de las partes
+              </Box>
+            </Typography>
 
-<Typography component="h1" variant="h5" color="primary">
-            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-           Datos de las partes
-            </Box>
-          </Typography>
-           
-
-          <TextField
+            <TextField
               variant="outlined"
               margin="normal"
               required
@@ -173,8 +159,7 @@ class System2 extends Component {
               }}
             />
 
-
-          <TextField
+            <TextField
               variant="outlined"
               margin="normal"
               required
@@ -188,7 +173,7 @@ class System2 extends Component {
               }}
             />
 
-          <TextField
+            <TextField
               variant="outlined"
               margin="normal"
               required
@@ -202,7 +187,7 @@ class System2 extends Component {
               }}
             />
 
-          <TextField
+            <TextField
               variant="outlined"
               margin="normal"
               required
@@ -214,75 +199,74 @@ class System2 extends Component {
               onChange={(ev) => {
                 this.syncOtroChanges(ev.target.value);
               }}
-            />    
+            />
 
-    
-      <FormLabel component="legend">Demandado</FormLabel>
-      <FormGroup>
-      <br></br>
-        <FormControlLabel
-          value="falabella"
-          control={<Checkbox color="primary" />}
-          label="Falabella S.A"
-          labelPlacement=""
-        />
+            <FormLabel component="legend">Demandado</FormLabel>
+            <FormGroup>
+              <br></br>
+              <FormControlLabel
+                value="falabella"
+                control={<Checkbox color="primary" />}
+                label="Falabella S.A"
+                labelPlacement=""
+              />
 
-        <FormControlLabel
-          value="homecenter"
-          control={<Checkbox color="primary" />}
-          label="Homecenter S.A"
-          labelPlacement="end"
-        />  
-     
-        <FormControlLabel
-          value="tottus"
-          control={<Checkbox color="primary" />}
-          label="Tottus S.A"
-          labelPlacement=""
-        />
+              <FormControlLabel
+                value="homecenter"
+                control={<Checkbox color="primary" />}
+                label="Homecenter S.A"
+                labelPlacement="end"
+              />
 
-        <FormControlLabel
-          value="mallplaza"
-          control={<Checkbox color="primary" />}
-          label="Mall Plaza S.A
+              <FormControlLabel
+                value="tottus"
+                control={<Checkbox color="primary" />}
+                label="Tottus S.A"
+                labelPlacement=""
+              />
+
+              <FormControlLabel
+                value="mallplaza"
+                control={<Checkbox color="primary" />}
+                label="Mall Plaza S.A
           "
-          labelPlacement="end"
-        />  
-      </FormGroup>
-      <br></br>
-      <FormLabel component="legend">Rut/Nit o Identificador*</FormLabel>
-      <FormGroup>
-      <br></br>
-        <FormControlLabel
-          value="101"
-          control={<Checkbox color="primary" />}
-          label="101-1"
-          labelPlacement=""
-        />
+                labelPlacement="end"
+              />
+            </FormGroup>
+            <br></br>
+            <FormLabel component="legend">Rut/Nit o Identificador*</FormLabel>
+            <FormGroup>
+              <br></br>
+              <FormControlLabel
+                value="101"
+                control={<Checkbox color="primary" />}
+                label="101-1"
+                labelPlacement=""
+              />
 
-        <FormControlLabel
-          value="202"
-          control={<Checkbox color="primary" />}
-          label="202-2"
-          labelPlacement="end"
-        />  
+              <FormControlLabel
+                value="202"
+                control={<Checkbox color="primary" />}
+                label="202-2"
+                labelPlacement="end"
+              />
 
-        <FormControlLabel
-          value="303"
-          control={<Checkbox color="primary" />}
-          label="303-3"
-          labelPlacement="end"
-        />  
+              <FormControlLabel
+                value="303"
+                control={<Checkbox color="primary" />}
+                label="303-3"
+                labelPlacement="end"
+              />
 
-        <FormControlLabel
-          value="404"
-          control={<Checkbox color="primary" />}
-          label="404-4"
-          labelPlacement="end"
-        />  
-      </FormGroup>
-      <br></br>
-      <TextField
+              <FormControlLabel
+                value="404"
+                control={<Checkbox color="primary" />}
+                label="404-4"
+                labelPlacement="end"
+              />
+            </FormGroup>
+            <br></br>
+            <TextField
               variant="outlined"
               margin="normal"
               required
@@ -294,44 +278,45 @@ class System2 extends Component {
               onChange={(ev) => {
                 this.syncOtraChanges(ev.target.value);
               }}
-            />    
-      
+            />
 
+            <Typography component="h1" variant="h5" color="primary">
+              <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+                Encargado del Caso
+              </Box>
+            </Typography>
 
-      <Typography component="h1" variant="h5" color="primary">
-            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-            Encargado del Caso
-            </Box>
-          </Typography>
+            <div>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-simple-select">
+                  Abogado Interno{" "}
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                >
+                  <MenuItem value={1}>Abogado 1</MenuItem>
+                  <MenuItem value={2}>Abogado 2</MenuItem>
+                  <MenuItem value={3}>Abogado 3</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
 
-        <div>
-          <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select">Abogado Interno </InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-        >
-          <MenuItem value={1}>Abogado 1</MenuItem>
-          <MenuItem value={2}>Abogado 2</MenuItem>
-          <MenuItem value={3}>Abogado 3</MenuItem>
-        </Select>
-      </FormControl>
-      </div>
-
-      <div>
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select">Abogado Externo </InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-        >
-          <MenuItem value={1}>Abogado 1</MenuItem>
-          <MenuItem value={2}>Abogado 2</MenuItem>
-          <MenuItem value={3}>Abogado 3</MenuItem>
-        </Select>
-      </FormControl>
-      </div>
-
+            <div>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-simple-select">
+                  Abogado Externo{" "}
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                >
+                  <MenuItem value={1}>Abogado 1</MenuItem>
+                  <MenuItem value={2}>Abogado 2</MenuItem>
+                  <MenuItem value={3}>Abogado 3</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
 
             <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
               <Button
@@ -341,17 +326,13 @@ class System2 extends Component {
                 className={classes.submit}
               >
                 Continuar
-              </Button> 
-              
+              </Button>
 
-              <Alert severity="success">
-        <AlertTitle>Success</AlertTitle>
-        This is a success alert — <strong>check it out!</strong>
-      </Alert>
-
-
+              {/*        <Alert severity="success">*/}
+              {/*  <AlertTitle>Success</AlertTitle>*/}
+              {/*  This is a success alert — <strong>check it out!</strong>*/}
+              {/*</Alert>*/}
             </Box>
-  
           </form>
         </div>
       </Container>

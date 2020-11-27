@@ -15,6 +15,11 @@ const theme = createMuiTheme({
       dark: "#000",
       contrastText: "#bbb",
     },
+    red: {
+      main: "#E9024C",
+      dark: "#000",
+      contrastText: "#bbb",
+    },
   },
   props: {
     MuiTypography: {
