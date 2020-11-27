@@ -23,18 +23,19 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  boldTitle: {
+    fontWeight: "bold",
+  },
 }));
 
 const Admin = ({ displayDemands }) => {
   const classes = useStyles();
-  console.log("displayDemands", displayDemands);
   return (
     <Grid container spacing={3}>
       {displayDemands === "GENERAL" && (
         <>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              {" "}
               <Title>General</Title>
             </Paper>
           </Grid>

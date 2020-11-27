@@ -9,8 +9,7 @@ import Title from "./Title";
 const storeageDemandas = localStorage.getItem("demandas");
 const demandas = storeageDemandas ? JSON.parse(storeageDemandas) : [];
 
-console.log("demandas", demandas);
-
+console.log("Cargando el localStorage...");
 const AdminTableDemand = () => {
   return (
     <React.Fragment>

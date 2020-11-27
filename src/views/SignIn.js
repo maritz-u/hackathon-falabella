@@ -64,14 +64,12 @@ class SignIn extends Component {
   }
 
   syncEmailChanges(email) {
-    console.log(email);
     this.setState({
       email: email,
     });
   }
 
   syncPasswordChanges(password) {
-    console.log(password);
     this.setState({
       password: password,
     });

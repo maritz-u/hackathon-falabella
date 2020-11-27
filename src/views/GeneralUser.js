@@ -28,7 +28,6 @@ const GeneralUser = () => {
   const [value, setValue] = React.useState("");
 
   const handleChange = (event) => {
-    console.log("SElected valu", event.target.value);
     setValue(event.target.value);
   };
   const classes = useStyles();

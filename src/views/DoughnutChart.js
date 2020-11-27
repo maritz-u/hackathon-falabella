@@ -11,11 +11,8 @@ const storageDemandas = localStorage.getItem("demandas");
 const demandas = JSON.parse(storageDemandas);
 const casos = demandas && demandas.length > 0 && demandas.concat(reclamos);
 
-console.log("LALALA12", casos);
 const getCountries = (pais) =>
   (casos && casos.filter((caso) => caso.pais === pais)) || [];
-
-console.log("TEST", getCountries("Colombia"));
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {

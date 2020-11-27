@@ -44,24 +44,19 @@ const Case = () => {
   const [displayAccident, setDisplayAccident] = useState(false);
   const [displayPublicity, setDisplayPublicity] = useState(false);
   const [displayAlert, setDisplayAlert] = useState(false);
-  const [open, setOpen] = useState(false);
 
   const storageUsuario = localStorage.getItem("usuarioActual");
   const usuario = JSON.parse(storageUsuario);
 
   const storageReclamos = localStorage.getItem("reclamos");
-  console.log("Reclamos", storageReclamos);
   const reclamos = storageReclamos ? JSON.parse(storageReclamos) : [];
 
-  console.log("Usuariooo", usuario);
   const [datos, setDatos] = useState({
     usuario: usuario.nombre,
     fecha: new Date(),
   });
 
   const handleInputChange = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.value);
     if (event.target.value === "Accidente") {
       setDisplayAccident(!displayAccident);
     } else if (event.target.value === "Publicidad") {
@@ -71,6 +66,7 @@ const Case = () => {
     setDatos({
       ...datos,
       [event.target.name]: event.target.value,
+      pais: "Chile",
     });
   };
 

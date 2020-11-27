@@ -125,7 +125,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     onChange={(e) => handleInputChange(e)}
                   />
                 }
-                label="Levisima"
+                label="Levísima"
               />
               <FormControlLabel
                 control={
@@ -158,7 +158,7 @@ export default function CheckboxesGroup({ handleInputChange }) {
                     onChange={(e) => handleInputChange(e)}
                   />
                 }
-                label="Gravisima"
+                label="Gravísima"
               />
             </FormGroup>
             <FormLabel component="legend">
