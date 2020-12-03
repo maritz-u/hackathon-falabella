@@ -9,12 +9,11 @@ import Title from "./Title";
 const storeageDemandas = localStorage.getItem("demandas");
 const demandas = storeageDemandas ? JSON.parse(storeageDemandas) : [];
 
-console.log("demandas", demandas);
-
+console.log("Cargando el localStorage...");
 const AdminTableDemand = () => {
   return (
     <React.Fragment>
-      <Title>Reclamos reportados</Title>
+      <Title>Demandas reportadas</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -38,7 +37,7 @@ const AdminTableDemand = () => {
               <TableCell>{demanda.local}</TableCell>
               <TableCell>{demanda.pais}</TableCell>
               <TableCell>{demanda.abogadoEncargado}</TableCell>
-              <TableCell>{demanda.resumen} CLP</TableCell>
+              <TableCell>{demanda.resumen}</TableCell>
             </TableRow>
           ))}
         </TableBody>

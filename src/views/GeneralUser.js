@@ -1,4 +1,4 @@
-import { Divider, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -10,7 +10,6 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import DemandWrapper from "./DemandWrapper";
-import ClaimWrapper from "./ClaimWrapper";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -29,46 +28,48 @@ const GeneralUser = () => {
   const [value, setValue] = React.useState("");
 
   const handleChange = (event) => {
-    console.log("SElected valu", event.target.value);
     setValue(event.target.value);
   };
   const classes = useStyles();
   return (
     <Grid container spacing={3}>
-      <Grid container xs={12}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <FormLabel component="legend">
-              Seleccione el tipo de caso:
-            </FormLabel>
-            <FormControl component="fieldset">
-              <RadioGroup name="type" value={value} onChange={handleChange}>
-                <FormControlLabel
-                  value="RECLAMO"
-                  control={<Radio color="primary" />}
-                  label="Reclamo"
-                />
-                <FormControlLabel
-                  value="DEMANDA"
-                  control={<Radio color="primary" />}
-                  label="Demanda"
-                />
-                <FormControlLabel
-                  value="CONSULTAS"
-                  control={<Radio color="primary" />}
-                  label="Consultas"
-                />
-              </RadioGroup>
-            </FormControl>
-          </Paper>
-        </Grid>
+      <Grid item xs={12}>
+        <Paper className={classes.paper}>
+          <Title>Seleccione el tipo de caso:</Title>
+          <FormControl component="fieldset">
+            <RadioGroup name="type" value={value} onChange={handleChange}>
+              <FormControlLabel
+                value="RECLAMO"
+                control={<Radio color="primary" />}
+                label="Reclamo"
+              />
+              <FormControlLabel
+                value="DEMANDA"
+                control={<Radio color="primary" />}
+                label="Demanda"
+              />
+              <FormControlLabel
+                value="Consulta"
+                control={<Radio color="primary" />}
+                label="Consulta"
+              />
+            </RadioGroup>
+          </FormControl>
+        </Paper>
       </Grid>
 
-      {value === "RECLAMO" && <ClaimWrapper />}
-    
-      
+      {value === "RECLAMO" && (
+        <>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              {" "}
+              <Title>Registro de incidencias</Title>
+              <Case />
+            </Paper>
+          </Grid>
+        </>
+      )}
       {value === "DEMANDA" && <DemandWrapper />}
-  
     </Grid>
   );
 };

@@ -8,19 +8,21 @@ import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import Claim from "./Claim";
 import Antecedent from "./Antecedent";
-import { Divider } from "@material-ui/core";
+import { Divider, Button } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-
+import Modal from "@material-ui/core/Modal";
+import { Alert, AlertTitle } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    "& .MuiTypography-h5":{
-        marginLeft:-11,
-    },
-   
-    
+    // "& .MuiTypography-h5": {
+    //   marginLeft: -11,
+    // },
+  },
+  wrapper: {
+    marginTop: "20px",
   },
   formControl: {
     margin: theme.spacing(3),
@@ -41,23 +43,20 @@ const Case = () => {
 
   const [displayAccident, setDisplayAccident] = useState(false);
   const [displayPublicity, setDisplayPublicity] = useState(false);
+  const [displayAlert, setDisplayAlert] = useState(false);
 
   const storageUsuario = localStorage.getItem("usuarioActual");
   const usuario = JSON.parse(storageUsuario);
 
   const storageReclamos = localStorage.getItem("reclamos");
-  console.log("Reclamos", storageReclamos);
   const reclamos = storageReclamos ? JSON.parse(storageReclamos) : [];
 
-  console.log("Usuariooo", usuario);
   const [datos, setDatos] = useState({
     usuario: usuario.nombre,
     fecha: new Date(),
   });
 
   const handleInputChange = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.value);
     if (event.target.value === "Accidente") {
       setDisplayAccident(!displayAccident);
     } else if (event.target.value === "Publicidad") {
@@ -67,22 +66,23 @@ const Case = () => {
     setDatos({
       ...datos,
       [event.target.name]: event.target.value,
+      pais: "Chile",
     });
   };
 
   const guardarDatos = (event) => {
+    document.querySelector("body").scrollTo(0, 0);
     event.preventDefault();
-
-    console.log("reclamos", reclamos);
     reclamos.push(datos);
 
     console.log("enviando datos..." + JSON.stringify(datos), reclamos);
 
     localStorage.setItem("reclamos", JSON.stringify(reclamos));
+    setDisplayAlert(true);
   };
 
   return (
-    <div className={classes.root}>
+    <div className="aqui">
       <Container component="main" maxWidth="xs">
         <form
           className={classes.container}
@@ -90,11 +90,11 @@ const Case = () => {
           onSubmit={(e) => guardarDatos(e)}
         >
           <FormControl component="fieldset" className={classes.formControl}>
-             <Typography component="h1" variant="h5" color="primary">
-            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+            <Typography component="h1" variant="h5" color="primary">
+              <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
                 Medio de reclamo
-            </Box>
-          </Typography>
+              </Box>
+            </Typography>
             <FormGroup>
               <FormControlLabel
                 control={
@@ -131,10 +131,10 @@ const Case = () => {
               />
             </FormGroup>
             <Typography component="h1" variant="h5" color="primary">
-            <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
-            Materias por reclamo
-            </Box>
-          </Typography>
+              <Box fontWeight="fontWeightBold" m={1} fontSize={20} m={1}>
+                Materias por reclamo
+              </Box>
+            </Typography>
 
             <FormGroup>
               <FormControlLabel
@@ -209,6 +209,25 @@ const Case = () => {
             </>
           )}
           {displayPublicity && <Antecedent />}
+
+          {displayAlert && (
+            <Alert severity="success">
+              <AlertTitle>Confirmación:</AlertTitle>
+              El caso ha sido ingresado con éxito a facilito
+            </Alert>
+          )}
+
+          <Box fontWeight="fontWeightBold" m={1} fontSize={40} m={1}>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Continuar
+            </Button>
+          </Box>
         </form>
       </Container>
     </div>

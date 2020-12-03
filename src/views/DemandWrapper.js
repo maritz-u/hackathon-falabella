@@ -23,14 +23,12 @@ const DemandWrapper = () => {
   const classes = useStyles();
 
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} md={12} lg={12}>
-        <Paper className={classes.paper}>
-          <Demand />
-          <Entry />
-          <System2 />
-        </Paper>
-      </Grid>
+    <Grid item xs={12} md={12} lg={12}>
+      <Paper className={classes.paper}>
+        <Demand />
+        <Entry />
+        <System2 />
+      </Paper>
     </Grid>
   );
 };

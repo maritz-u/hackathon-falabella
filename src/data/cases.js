@@ -47,7 +47,7 @@ const listaReclamos = [
     usuario: "Pedro Alvarado",
     fecha: "20/11/2020",
     medio: "local",
-    pais: "Colombia",
+    pais: "Perú",
     materia: "Despacho del producto",
     interiorLocal: "sí",
     tipoAccidente: "inseguridad personal",

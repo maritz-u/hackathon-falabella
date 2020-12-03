@@ -151,9 +151,9 @@ const Dashboard = ({ history }) => {
 
   const usuario = JSON.parse(storageUsuario);
 
-  const getLogo = iconos[usuario.negocio];
+  const getLogo = iconos[usuario && usuario.negocio];
 
-  const esAdmin = usuario.tipoUsuario === "ADMIN";
+  const esAdmin = usuario && usuario.tipoUsuario === "ADMIN";
 
   return (
     <div className={classes.root}>

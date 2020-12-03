@@ -64,14 +64,12 @@ class SignIn extends Component {
   }
 
   syncEmailChanges(email) {
-    console.log(email);
     this.setState({
       email: email,
     });
   }
 
   syncPasswordChanges(password) {
-    console.log(password);
     this.setState({
       password: password,
     });
@@ -86,6 +84,7 @@ class SignIn extends Component {
 
       const usuario = localStorage.getItem("usuarioActual");
       this.props.history.push("/dashboard");
+      window.location.reload();
     } else {
       this.setState({ error: true });
     }
@@ -105,7 +104,7 @@ class SignIn extends Component {
               Bienvenido
             </Box>
           </Typography>
-          {error && <Alert severity="error">usuario incorrecto</Alert>}
+          {error && <Alert severity="error">Usuario incorrecto</Alert>}
           <form
             onSubmit={(event) => this.submitForm(event)}
             className={classes.form}
