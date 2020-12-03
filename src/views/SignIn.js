@@ -84,6 +84,7 @@ class SignIn extends Component {
 
       const usuario = localStorage.getItem("usuarioActual");
       this.props.history.push("/dashboard");
+      window.location.reload();
     } else {
       this.setState({ error: true });
     }
