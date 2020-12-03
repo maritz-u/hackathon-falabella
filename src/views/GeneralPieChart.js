@@ -58,11 +58,7 @@ const GeneralPie = () => {
         Consulta: <Chip label="URGENTE" className={classes.redChip} />
       </p>
       <p>
-<<<<<<< HEAD
         Reclamo: <Chip label="OPTIMO" color="primary"/>{" "}
-=======
-        Reclamo: <Chip label="OPTIMO" color="primary" />
->>>>>>> d740b0e6feb3542ffe393b3edea4c24b4bccbd0b
       </p>
       <p>
         Demanda: <Chip label="OPTIMO" color="primary" />
